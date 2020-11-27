@@ -28,6 +28,8 @@ app.post('/login',function(req,res){
  	}
 })
 
+--------------------------------
+
 Your entire file should look like this now:
 
 const express = require('express');
@@ -90,4 +92,14 @@ Time to commit our changes!
 git add server.js
 git commit -m"add login POST route"
 git push origin master
+
+--------------------------------
+
+Notice how we used app.post this time instead of app.get. We also compared the values passed from the request body to see if they match our mock data (which would normally come from a database). If they match, it will send a JSON file with an additional value, where a token could be stored. However, if they don't match, it will return an error message (without the token).
+
+bulb As a security precaution, you should never save passwords directly into your database. Use a tool like bcrypt to save a hashed version, which will be decoded at login.
+
+With this last push, your repository should look like this.
+
+Click here to learn how to test a POST route.
 */
